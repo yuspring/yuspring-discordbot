@@ -3,11 +3,16 @@ const fs = require('fs');
 const utils = require('util');
 require('dotenv').config();
 
-const PORT = 8000 || 80;
-var server = app.listen(PORT, function() {
-    var host = server.address().address;
-    var port = server.address().port;
-    console.log("server is listening at http://%s:%s", host, port);
+var express = require('express');
+var app = express();
+
+app.set('port', 8000);
+
+app.get('/', function(_request, response) {
+    var result = 'App is running'
+    response.send(result);
+}).listen(app.get('port'), function() {
+    console.log('App is running, server is listening on port', app.get('port'));
 });
 
 
@@ -29,7 +34,6 @@ for (const file of bobotoucommandFiles) {
     client.bobocommands.set(bobocommand.name, bobocommand);
 }
 
-console.log(client.commands);
 
 client.on("ready", async() => {
     console.log(`${client.user.username} 上線了 `);
