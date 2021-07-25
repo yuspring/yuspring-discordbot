@@ -3,6 +3,14 @@ const fs = require('fs');
 const utils = require('util');
 require('dotenv').config();
 
+const PORT = 8000 || 80;
+var server = app.listen(PORT, function() {
+    var host = server.address().address;
+    var port = server.address().port;
+    console.log("server is listening at http://%s:%s", host, port);
+});
+
+
 const { prefix } = require('./config.json');
 const client = new Discord.Client('./client/client.js');
 client.commands = new Discord.Collection();
