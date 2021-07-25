@@ -3,7 +3,6 @@ const fs = require('fs');
 const utils = require('util');
 require('dotenv').config();
 
-
 const { prefix } = require('./config.json');
 const client = new Discord.Client('./client/client.js');
 client.commands = new Discord.Collection();
@@ -21,6 +20,8 @@ for (const file of bobotoucommandFiles) {
     const bobocommand = require(`./bobotou-commands/${file}`);
     client.bobocommands.set(bobocommand.name, bobocommand);
 }
+
+console.log(client.commands);
 
 client.on("ready", async() => {
     console.log(`${client.user.username} 上線了 `);
