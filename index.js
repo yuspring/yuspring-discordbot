@@ -6,7 +6,7 @@ require('dotenv').config();
 var express = require('express');
 var app = express();
 
-app.set('port', 8000);
+app.set('port', (process.env.PORT || 8000));
 
 app.get('/', function(_request, response) {
     var result = 'App is running'
