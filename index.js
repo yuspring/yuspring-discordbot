@@ -3,18 +3,6 @@ const fs = require('fs');
 const utils = require('util');
 require('dotenv').config();
 
-var express = require('express');
-var app = express();
-
-app.set('port', (process.env.PORT || 8000));
-
-app.get('/', function(_request, response) {
-    var result = 'App is running'
-    response.send(result);
-}).listen(app.get('port'), function() {
-    console.log('App is running, server is listening on port', app.get('port'));
-});
-
 
 const { prefix } = require('./config.json');
 const client = new Discord.Client('./client/client.js');
@@ -33,7 +21,6 @@ for (const file of bobotoucommandFiles) {
     const bobocommand = require(`./bobotou-commands/${file}`);
     client.bobocommands.set(bobocommand.name, bobocommand);
 }
-
 
 client.on("ready", async() => {
     console.log(`${client.user.username} 上線了 `);
@@ -74,7 +61,7 @@ client.on('message', async message => {
     if (!message.content.startsWith(prefix)) return;
 
     try {
-        if (commandName == 'nick') {
+        if (commandName == 'nick' || commandName == 'userinfo') {
             command.execute(client, message);
         } else {
             command.execute(message);
@@ -86,4 +73,4 @@ client.on('message', async message => {
 
 });
 
-client.login('NDQ5OTExNDA2NDU2ODY0Nzc4.WwlSpg.GKYXpxkHfqG8rCtlE4VTBGDkbkU');
+client.login(process.env.TOKEN);
