@@ -3,6 +3,10 @@ module.exports = {
     description: '波波頭專屬',
     async execute(message) {
 
+        if (message.author.id != 325576441540378625) {
+            message.reply('你不是春魚QQ');
+            return;  
+        } 
         const args = message.content.split(' ');
         let Count = 0;
 
