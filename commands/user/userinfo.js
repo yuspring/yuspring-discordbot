@@ -1,20 +1,16 @@
 const Discord = require('discord.js');
-const { getUserFromMention } = require('../utils/getUser');
 
 module.exports = {
     name: 'userinfo',
     description: '得到一個人的資訊',
     execute(client, message) {
+
         const split = message.content.split(/ +/);
         const args = split.slice(1);
-        //const user = getUserFromMention(args[0], client);
+        
         let user = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0])).user;
         let userguild = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-        //console.log(message.guild);
-        console.log(message.guild.roles);
-        console.log(user.avatarURL)
 
-        
         const embed = new Discord.MessageEmbed()
             .setColor('#0099ff')
             .setTitle('個人資訊')

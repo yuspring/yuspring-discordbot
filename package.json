@@ -9,6 +9,7 @@
     "author": "yuspring",
     "license": "ISC",
     "dependencies": {
+        "ascii-table": "^0.0.9",
         "discord.js": "^12.5.3",
         "dotenv": "^10.0.0",
         "express": "^4.17.1",

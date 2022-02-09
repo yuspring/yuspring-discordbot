@@ -1,4 +1,5 @@
 exports.getUserFromMention = (mention, client) => {
+    
     if (!mention) return;
 
     if (mention.startsWith('<@') && mention.endsWith('>')) {

@@ -1,7 +1,7 @@
 module.exports = {
     name: 'purge',
-    description: '波波頭專屬',
-    async execute(message) {
+    description: '清除訊息',
+    async execute(client, message) {
 
         if (message.author.id != 325576441540378625) {
             message.reply('你不是春魚QQ');

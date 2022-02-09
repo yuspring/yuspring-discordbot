@@ -1,5 +1,3 @@
-const { MessageAttachment } = require("discord.js");
-
 module.exports = {
     name: 'nick',
     description: '匿名發言(限定在DM channel使用)',
@@ -27,7 +25,7 @@ module.exports = {
                     message.author.send('圖片訊息已發送成功');
 
                 }
-            }).catch(error => {
+            }).catch(() => {
                 message.channel.send(`逾時或指令錯誤`);
             });
 

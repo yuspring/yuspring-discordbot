@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const { getUserFromMention } = require('../utils/getUser');
+const { getUserFromMention } = require('../../utils/getUser.js');
 
 module.exports = {
     name: 'cp',
@@ -13,7 +13,6 @@ module.exports = {
             return;
         }
 
-
         let user1 = getUserFromMention(args[0], client);
         let user2 = getUserFromMention(args[1], client);
         
@@ -21,9 +20,6 @@ module.exports = {
             message.channel.send("不能跟西瓜組CP:angry:");
             return;
         }
-        console.log(user1.id);
-        console.log(user2.id);
-
         
         const embed = new Discord.MessageEmbed()
             .setColor('#0099ff')
